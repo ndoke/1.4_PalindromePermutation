@@ -23,5 +23,13 @@ public class PalindromePermutationTest {
         Assert.assertTrue(palindromePermutation.isPalindromeChecker("zzz"));
         Assert.assertTrue(palindromePermutation.isPalindromeChecker("z"));
         Assert.assertFalse(palindromePermutation.isPalindromeChecker("abca"));
+
+        Assert.assertTrue(palindromePermutation.isPalindromeOddCounter(""));
+        Assert.assertFalse(palindromePermutation.isPalindromeOddCounter("ac"));
+        Assert.assertTrue(palindromePermutation.isPalindromeOddCounter("aca"));
+        Assert.assertTrue(palindromePermutation.isPalindromeOddCounter("bb"));
+        Assert.assertTrue(palindromePermutation.isPalindromeOddCounter("zZz"));
+        Assert.assertTrue(palindromePermutation.isPalindromeOddCounter("z"));
+        Assert.assertFalse(palindromePermutation.isPalindromeOddCounter("zbZ"));
     }
 }
