@@ -10,6 +10,8 @@ import java.util.Map;
  * permutations of each other or not.
  * {@link PalindromePermutation#isPalindromeChecker(String)} tests whether the two strings are
  * permutations of each other or not.
+ * {@link PalindromePermutation#isPalindromeOddCounter(String)} tests whether the string
+ * is a permutation of a palindrome by using a counter for odd counts.
  *
  * @author Nachiket Doke
  * @since 1.0
