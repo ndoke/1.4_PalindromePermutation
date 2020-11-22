@@ -17,11 +17,7 @@ import java.util.Map;
  * @since 1.0
  */
 public class PalindromePermutation {
-    private static final int TOTAL_CHARS_ENGLISH = 26;
-    private static final int FIRST_LOWER_CHAR_ENGLISH = 97;
-    private static final int LAST_LOWER_CHAR_ENGLISH = 122;
-    private static final int FIRST_UPPER_CHAR_ENGLISH = 65;
-    private static final int LAST_UPPER_CHAR_ENGLISH = 90;
+    private static final int TOTAL_ASCII_CHARSET = 256;
 
     /**
      * Returns true if the string is a permutation of a palindrome
@@ -68,12 +64,7 @@ public class PalindromePermutation {
         // loop through the string
         for (int i = 0; i < input.length(); i++) {
             // get intValOfCurrentChar = (int value of each character - int value of 'a'/'A')
-            int intValOfCurrentChar = (int) input.charAt(i);
-            if (intValOfCurrentChar >= FIRST_UPPER_CHAR_ENGLISH && intValOfCurrentChar <= LAST_UPPER_CHAR_ENGLISH) {
-                intValOfCurrentChar -= FIRST_UPPER_CHAR_ENGLISH;
-            } else if (intValOfCurrentChar >= FIRST_LOWER_CHAR_ENGLISH && intValOfCurrentChar <= LAST_LOWER_CHAR_ENGLISH) {
-                intValOfCurrentChar -= FIRST_LOWER_CHAR_ENGLISH;
-            }
+            int intValOfCurrentChar = input.charAt(i);
 
             // left shift 1 by intValOfCurrentChar
             int val = 1 << intValOfCurrentChar;
@@ -97,17 +88,11 @@ public class PalindromePermutation {
      * @return true if both strings are permutation of each other
      */
     public boolean isPalindromeOddCounter(String input) {
-        int counts[] = new int[2 * TOTAL_CHARS_ENGLISH];
+        int counts[] = new int[TOTAL_ASCII_CHARSET];
         int countOdd = 0;
 
         for (int i = 0; i < input.length(); i++) {
-            int val = (int) input.charAt(i);
-            if (val >= FIRST_UPPER_CHAR_ENGLISH && val <= LAST_UPPER_CHAR_ENGLISH) {
-                val -= FIRST_UPPER_CHAR_ENGLISH;
-            } else if (val >= FIRST_LOWER_CHAR_ENGLISH && val <= LAST_LOWER_CHAR_ENGLISH) {
-                val -= FIRST_LOWER_CHAR_ENGLISH;
-                val += TOTAL_CHARS_ENGLISH;
-            }
+            int val = input.charAt(i);
 
             counts[val]++;
 
